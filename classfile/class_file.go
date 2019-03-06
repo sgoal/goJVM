@@ -9,7 +9,7 @@ type ClassFile struct{
 	accessFlags		uint16
 	thisClass		uint16
 	superClass		uint16
-	interfaces		uint16
+	interfaces		[]uint16
 	fields			[]*MemberInfo
 	methods			[]*MemberInfo
 	attributes		[]AttributeInfo
@@ -25,7 +25,7 @@ func Parse(classData []byte)  (cf *ClassFile, err error){
 			}
 		}
 	}()
-	cr := &ClassReader(classData)
+	cr := &ClassReader{classData}
 	cf = &ClassFile{}
 	cf.read(cr)
 	return
@@ -55,7 +55,7 @@ func (self *ClassFile) readAndCheckMagic(reader *ClassReader){
 	}
 }
 
-func (self*ClassFile)readAndCheckVersion()  {
+func (self*ClassFile)readAndCheckVersion(reader *ClassReader)  {
 	self.minorVersion = reader.readUint16()
 	self.majorVersion = reader.readUint16()
 	switch self.majorVersion {
@@ -71,36 +71,36 @@ func (self*ClassFile)readAndCheckVersion()  {
 
 //getter
 func (self* ClassFile) MinorVersion() uint16 {
-	return this.minorVersion
+	return self.minorVersion
 }
 //getter
 func (self* ClassFile) MajorVersion() uint16 {
-	return this.majorVersion
+	return self.majorVersion
 }
 //getter
 func (self* ClassFile) ConstantPool() ConstantPool {
-	return this.constantPool
+	return self.constantPool
 }
 //getter
 func (self* ClassFile) AccessFlags() uint16 {
-	return this.accessFlags
+	return self.accessFlags
 }
 //getter
 func (self* ClassFile) Fields() []*MemberInfo {
-	return this.fields
+	return self.fields
 }
 //getter
 func (self* ClassFile) Methods() []*MemberInfo {
-	return this.methods
+	return self.methods
 }
 //getter
 func (self* ClassFile) ClassName() string {
-	return this.constantPool.getClassName(self.thisClass)
+	return self.constantPool.getClassName(self.thisClass)
 }
 //getter
 func (self* ClassFile) SuperClassName() string {
 	if self.superClass >0 {
-		return this.constantPool.getClassName(self.thisClass)
+		return self.constantPool.getClassName(self.thisClass)
 	}
 	return ""
 }

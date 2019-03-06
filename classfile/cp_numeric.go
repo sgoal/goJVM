@@ -33,7 +33,7 @@ type ConstantDoubleInfo struct {
 	val float64;
 }
 
-func (self * ConstantLongInfo) readInfo(reader *ClassReader)  {
+func (self * ConstantDoubleInfo) readInfo(reader *ClassReader)  {
 	bytes := reader.readUint64()
 	self.val = math.Float64frombits(bytes)
 }

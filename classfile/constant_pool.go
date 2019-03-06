@@ -4,13 +4,13 @@ type ConstantInfo interface{
 } 
 
 func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo{
-	tag := reader.readerUint8()
+	tag := reader.readUint8()
 	constanInfo := newConstantInfo(tag, cp)
 	constanInfo.readInfo(reader)
 	return constanInfo
 }
 
-func newConstantInfo(tag uint8, cp ConstantPool){
+func newConstantInfo(tag uint8, cp ConstantPool) ConstantInfo{
 	switch tag {
 		case CONSTANT_Integer: return &ConstantIntegerInfo{}
 		case CONSTANT_Float: return &ConstantFloatInfo{}
@@ -37,7 +37,7 @@ func newConstantInfo(tag uint8, cp ConstantPool){
 type ConstantPool []ConstantInfo
 
 func readConstantPool(reader *ClassReader)  ConstantPool{
-	cpCount := int(reader.readerUint16())
+	cpCount := int(reader.readUint16())
 	cp := make([]ConstantInfo, cpCount)
 	for i:=1;i<cpCount;i++{ //i start from 1
 		cp[i] = readConstantInfo(reader, cp)
@@ -59,7 +59,7 @@ func (self ConstantPool) getConstantInfo(index uint16) ConstantInfo{
 func (self ConstantPool)getNameAndType(index uint16) (string, string){
 	ntInfo := self.getConstantInfo(index).(*ConstantNameAndTypeInfo)
 	name := self.getUtf8(ntInfo.nameIndex)
-	_type := slef.getUtf8(ntInfo.descriptorIndex)
+	_type := self.getUtf8(ntInfo.descriptorIndex)
 	return name,_type
 }
 

@@ -5,7 +5,7 @@ type ConstantStringInfo struct {
 	stringIndex 	uint16
 }
 func (self *ConstantStringInfo) readInfo(reader *ClassReader) {
-	self.str  = reader.readUint16()
+	self.stringIndex  = reader.readUint16()
 }
 
 

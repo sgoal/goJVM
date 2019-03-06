@@ -28,7 +28,7 @@ func Parse(classData []byte)  (cf *ClassFile, err error){
 	cr := &ClassReader{classData}
 	cf = &ClassFile{}
 	cf.read(cr)
-	return
+	return cf, nil
 }
 
 func (self *ClassFile) read(reader *ClassReader){
@@ -100,7 +100,7 @@ func (self* ClassFile) ClassName() string {
 //getter
 func (self* ClassFile) SuperClassName() string {
 	if self.superClass >0 {
-		return self.constantPool.getClassName(self.thisClass)
+		return self.constantPool.getClassName(self.superClass)
 	}
 	return ""
 }

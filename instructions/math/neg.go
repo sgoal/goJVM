@@ -2,10 +2,10 @@ package math
 import "jvmgo/instructions/base"
 import "jvmgo/rtda"
 
-type DNEG struct{ base.Index8Instruction }
-type FNEG struct{ base.Index8Instruction }
-type INEG struct{ base.Index8Instruction }
-type LNEG struct{ base.Index8Instruction }
+type DNEG struct{ base.NoOperandsInstruction }
+type FNEG struct{ base.NoOperandsInstruction }
+type INEG struct{ base.NoOperandsInstruction }
+type LNEG struct{ base.NoOperandsInstruction }
 
 func (self *DNEG) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()

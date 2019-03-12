@@ -2,10 +2,10 @@ package math
 import "jvmgo/instructions/base"
 import "jvmgo/rtda"
 
-type DMUL struct{ base.Index8Instruction }
-type FMUL struct{ base.Index8Instruction }
-type IMUL struct{ base.Index8Instruction }
-type LMUL struct{ base.Index8Instruction }
+type DMUL struct{ base.NoOperandsInstruction }
+type FMUL struct{ base.NoOperandsInstruction }
+type IMUL struct{ base.NoOperandsInstruction }
+type LMUL struct{ base.NoOperandsInstruction }
 
 func (self *DMUL) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()

@@ -2,9 +2,9 @@ package conversions
 import "jvmgo/instructions/base"
 import "jvmgo/rtda"
 
-type D2F struct{ base.Index8Instruction }
-type D2L struct{ base.Index8Instruction }
-type D2I struct{ base.Index8Instruction }
+type D2F struct{ base.NoOperandsInstruction }
+type D2L struct{ base.NoOperandsInstruction }
+type D2I struct{ base.NoOperandsInstruction }
 
 func _popd(frame *rtda.Frame) float64{
 	stack := frame.OperandStack()

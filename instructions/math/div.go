@@ -2,10 +2,10 @@ package math
 import "jvmgo/instructions/base"
 import "jvmgo/rtda"
 
-type DDIV struct{ base.Index8Instruction }
-type FDIV struct{ base.Index8Instruction }
-type IDIV struct{ base.Index8Instruction }
-type LDIV struct{ base.Index8Instruction }
+type DDIV struct{ base.NoOperandsInstruction }
+type FDIV struct{ base.NoOperandsInstruction }
+type IDIV struct{ base.NoOperandsInstruction }
+type LDIV struct{ base.NoOperandsInstruction }
 
 func (self *DDIV) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()

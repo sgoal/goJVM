@@ -2,10 +2,10 @@ package math
 import "jvmgo/instructions/base"
 import "jvmgo/rtda"
 
-type DSUB struct{ base.Index8Instruction }
-type FSUB struct{ base.Index8Instruction }
-type ISUB struct{ base.Index8Instruction }
-type LSUB struct{ base.Index8Instruction }
+type DSUB struct{ base.NoOperandsInstruction }
+type FSUB struct{ base.NoOperandsInstruction }
+type ISUB struct{ base.NoOperandsInstruction }
+type LSUB struct{ base.NoOperandsInstruction }
 
 func (self *DSUB) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()

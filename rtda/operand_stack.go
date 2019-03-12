@@ -42,9 +42,9 @@ func (self *OperandStack) PushLong(val int64){
 }
 
 func (self *OperandStack) PopLong() int64{
-	high := uint32(self.slots[self.size].num)
-	low := uint32(self.slots[self.size-1].num)
 	self.size-=2
+	high := uint32(self.slots[self.size+1].num)
+	low := uint32(self.slots[self.size].num)
 	return int64(high)<<32|int64(low)
 }
 
@@ -66,4 +66,14 @@ func (self *OperandStack) PopRef() *Object{
 	ref := self.slots[self.size].ref
 	self.slots[self.size].ref = nil
 	return ref
+}
+
+func (self *OperandStack) PushSlot(slot Slot){
+	self.slots[self.size] = slot
+	self.size ++
+}
+
+func (self *OperandStack) PopSlot() Slot{
+	self.size --
+	return self.slots[self.size]
 }

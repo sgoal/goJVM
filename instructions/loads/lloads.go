@@ -1,7 +1,7 @@
 package loads
 import "jvmgo/instructions/base"
 import "jvmgo/rtda"
-// Load int from local variable
+// Load long from local variable
 type LLOAD struct{ base.Index8Instruction }
 type LLOAD_0 struct{ base.NoOperandsInstruction }
 type LLOAD_1 struct{ base.NoOperandsInstruction }

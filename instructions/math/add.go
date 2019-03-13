@@ -2,10 +2,10 @@ package math
 import "jvmgo/instructions/base"
 import "jvmgo/rtda"
 
-type DADD struct{ base.Index8Instruction }
-type FADD struct{ base.Index8Instruction }
-type IADD struct{ base.Index8Instruction }
-type LADD struct{ base.Index8Instruction }
+type DADD struct{ base.NoOperandsInstruction }
+type FADD struct{ base.NoOperandsInstruction }
+type IADD struct{ base.NoOperandsInstruction }
+type LADD struct{ base.NoOperandsInstruction }
 
 func (self *DADD) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()

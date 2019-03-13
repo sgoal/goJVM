@@ -3,10 +3,10 @@ import "math"
 import "jvmgo/instructions/base"
 import "jvmgo/rtda"
 
-type DREM struct{ base.Index8Instruction }
-type FREM struct{ base.Index8Instruction }
-type IREM struct{ base.Index8Instruction }
-type LREM struct{ base.Index8Instruction }
+type DREM struct{ base.NoOperandsInstruction }
+type FREM struct{ base.NoOperandsInstruction }
+type IREM struct{ base.NoOperandsInstruction }
+type LREM struct{ base.NoOperandsInstruction }
 
 func (self *DREM) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()

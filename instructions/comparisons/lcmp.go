@@ -2,10 +2,10 @@ package comparisions
 import "jvmgo/instructions/base"
 import "jvmgo/rtda"
 
-type LCAMP struct{ base.NoOperandsInstruction }
+type LCMP struct{ base.NoOperandsInstruction }
 
 
-func (self *LCAMP) Execute(frame *rtda.Frame)  {
+func (self *LCMP) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()
 	v2, v1 := stack.PopLong(), stack.PopLong()
 	if v1 > v2{

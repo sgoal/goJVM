@@ -31,9 +31,24 @@ func startJVM(cmd *Cmd){
 	fmt.Println(cmd.class)
 	printClassInfo(cf)
 
-	frame := rtda.NewFrame(100,100)
-	testLocalVars(frame.LocalVars())
-	testOperandStack(frame.OperandStack())
+	mainMethod := getMainMethod(cf)
+	if mainMethod != nil {
+		interpret(mainMethod)
+	} else {
+		fmt.Printf("Main method not found in class %s\n", cmd.class)
+	}
+	// frame := rtda.NewFrame(100,100)
+	// testLocalVars(frame.LocalVars())
+	// testOperandStack(frame.OperandStack())
+}
+
+func getMainMethod(cf *classfile.ClassFile) *classfile.MemberInfo{
+	for _, m := range cf.Methods() {
+		if m.Name() == "main" && m.Descriptor() == "([Ljava/lang/String;)V"{
+			return m
+		}
+	}
+	return nil
 }
 
 func loadClass(className string, cp *classpath.ClassPath) *classfile.ClassFile{

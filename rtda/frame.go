@@ -8,7 +8,7 @@ type Frame struct{
 	nextPC			int  //next instrcution
 }
 
-func NewFrame(thread *Thread, maxLocals, maxStack uint) *Frame{
+func newFrame(thread *Thread, maxLocals, maxStack uint) *Frame{
 	return &Frame{
 		thread:			thread,
 		localVars:		newLocalVars(maxLocals),
@@ -32,4 +32,8 @@ func (self *Frame) SetNextPC(pc int){
 
 func (self *Frame) Thread() *Thread{
 	return self.thread
+}
+
+func (self *Frame) NextPC() int{
+	return self.nextPC
 }

@@ -55,7 +55,7 @@ func (self *IF_ICMPGE) Execute(frame *rtda.Frame)  {
 }
 
 func _icmp(frame *rtda.Frame)(val1, val2 int32){
-	val2 := frame.OperandStack().PopInt()
-	val1 := frame.OperandStack().PopInt()
+	val2 = frame.OperandStack().PopInt()
+	val1 = frame.OperandStack().PopInt()
 	return
 }

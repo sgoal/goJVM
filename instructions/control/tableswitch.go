@@ -10,7 +10,7 @@ type TABLE_SWITCH struct{
 	jumpOffsets				[]int32
  }
 
- func (self *TABLE_SWITCH) FetchOperands(frame *rtda.Frame)  {
+ func (self *TABLE_SWITCH) FetchOperands(reader *base.BytecodeReader)  {
 	reader.SkipPadding()
 	self.defaultOffset = reader.ReadInt32()
 	self.low = reader.ReadInt32()

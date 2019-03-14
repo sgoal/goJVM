@@ -2,15 +2,15 @@ package instructions
 
 import "fmt"
 import "jvmgo/instructions/base"
-import "jvmgo/instructions/comparisons"
-import "jvmgo/instructions/constants"
-import "jvmgo/instructions/control"
-import "jvmgo/instructions/conversions"
-import "jvmgo/instructions/extended"
-import "jvmgo/instructions/loads"
-import "jvmgo/instructions/math"
-import "jvmgo/instructions/stack"
-import "jvmgo/instructions/stores"
+import ."jvmgo/instructions/comparisons"
+import ."jvmgo/instructions/constants"
+import ."jvmgo/instructions/control"
+import ."jvmgo/instructions/conversions"
+import ."jvmgo/instructions/extended"
+import ."jvmgo/instructions/loads"
+import ."jvmgo/instructions/math"
+import ."jvmgo/instructions/stack"
+import ."jvmgo/instructions/stores"
 
 // NoOperandsInstruction singletons
 var (

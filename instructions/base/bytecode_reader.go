@@ -49,7 +49,11 @@ func (self *BytecodeReader) SkipPadding(){
 	}
 }
 
-func (self *BytecodeReader) Rest(code []byte,pc int){
+func (self *BytecodeReader) Reset(code []byte,pc int){
 	self.code = code
 	self.pc = pc
+}
+
+func (self *BytecodeReader) PC() int{
+	return self.pc 
 }

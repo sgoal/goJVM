@@ -2,8 +2,8 @@ package base
 import "jvmgo/rtda"
 
 type Instruction interface{
-	FetchOpreands (reader *BytecodeReader)
-	Exectue(frame *rtda.Frame)
+	FetchOperands (reader *BytecodeReader)
+	Execute(frame *rtda.Frame)
 }
 
 type NoOperandsInstruction struct{}

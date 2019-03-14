@@ -18,7 +18,7 @@ bottom -> top
                V
 [...][c][b][a][a]
 */
-func (self *DUP) Execute(frame rtda.Frame)  {
+func (self *DUP) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()
 	slot := stack.PopSlot()
 	stack.PushSlot(slot)
@@ -33,7 +33,7 @@ bottom -> top
          V
 [...][c][a][b][a]
 */
-func (self *DUP_X1) Execute(frame rtda.Frame)  {
+func (self *DUP_X1) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()
@@ -50,7 +50,7 @@ bottom -> top
          V
 [...][d][a][c][b][a]
 */
-func (self *DUP_X2) Execute(frame rtda.Frame)  {
+func (self *DUP_X2) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()
@@ -70,7 +70,7 @@ bottom -> top
                V  V
 [...][c][b][a][b][a]
 */
-func (self *DUP2) Execute(frame rtda.Frame)  {
+func (self *DUP2) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()
@@ -88,7 +88,7 @@ bottom -> top
       V  V
 [...][b][a][c][b][a]
 */
-func (self *DUP2_X1) Execute(frame rtda.Frame)  {
+func (self *DUP2_X1) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()
@@ -107,7 +107,7 @@ bottom -> top
       V  V
 [...][b][a][c][d][b][a]
 */
-func (self *DUP2_X2) Execute(frame rtda.Frame)  {
+func (self *DUP2_X2) Execute(frame *rtda.Frame)  {
 	stack := frame.OperandStack()
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()

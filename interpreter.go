@@ -19,8 +19,8 @@ func interpret(methodInfo *classfile.MemberInfo) {
 
 func catchErr(frame *rtda.Frame){
 	if r:=recover(); r!=nil{
-		fmt.Printf("LocalVars:%v\n",frame,LocalVars())
-		fmt.Printf("OperandStack:%v\n",frame,OperandStack())
+		fmt.Printf("LocalVars:%v\n",frame.LocalVars())
+		fmt.Printf("OperandStack:%v\n",frame.OperandStack())
 		panic(r)
 	}
 }

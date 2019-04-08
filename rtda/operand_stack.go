@@ -1,5 +1,7 @@
 package	rtda
 import "math"
+import ."jvmgo/rtda/heap"
+
 type OperandStack struct{
 	size	uint
 	slots	[]Slot
